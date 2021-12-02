@@ -1,5 +1,13 @@
 {% extends 'home/base.html' %}
 
 {% block title %}
-LaNuitDeLInfo2021
+    Sauveteurs du Dunkerquois
+{% endblock %}
+
+{% block body %}
+    {% include 'home/carousel.html' %}
+
+    <hr class="my-5" />
+
+    {% include 'home/signup.html' %}
 {% endblock %}
