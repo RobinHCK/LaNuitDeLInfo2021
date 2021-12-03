@@ -1,3 +1,6 @@
 django==3.2.9
 django-debug-toolbar
 Pillow
+numpy
+pytesseract
+opencv-python
