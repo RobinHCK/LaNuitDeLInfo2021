@@ -1,19 +1,32 @@
 {% extends 'home/base.html' %}
+{% load media %}
 
 {% block title %}
     Sauveteurs du Dunkerquois
 {% endblock %}
 
 {% block body %}
-    <form>
-        <label class="form-label" for="customFile">Déposer votre fichier</label>
-        <input type="file" class="form-control" id="customFile" />
 
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block" formaction="{% url db:analyse %}">
-            Extraire des informations
-        </button>
-        <input>
-    </form>
+    <div class="container">
+
+        <!--Simple Form-->
+        <h2 class="my-4">Ajouter une nouvelle image</h2>
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          {{form}}<br>
+            <button class="btn btn-dark my-4" type="submit">Analyser</button>
+        </form>
+
+        <!--See File Uploaded-->
+        {% if img %}
+        <h2 class="my-4">Résultat de l'analyse</h2>
+        <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+            <img src="{% media {{ img }} %}" class="img-fluid"/>
+            <p>{{ text }}</p>
+        {% else %}
+        <p>No movies scripts added.</p>
+        {% endif %}
+    </div>
 
 {% endblock %}
