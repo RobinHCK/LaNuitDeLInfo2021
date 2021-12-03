@@ -19,3 +19,4 @@ def search_ship(request):
         'title': title
     }
     return render(request, 'database/search.html', context)
+
