@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('', include(('home.urls','home'), namespace='home')),
+    url('', include('home.urls')),
     url(r'^db/', include(('database.urls', 'database'), namespace='db'))
 ]
 
