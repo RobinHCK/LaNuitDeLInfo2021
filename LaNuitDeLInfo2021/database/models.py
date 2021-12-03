@@ -2,7 +2,7 @@ from django.db import models
 import urllib
 import os
 
-def extract_frist_image(obj):
+def extract_first_image(obj):
     obj.img = None
     if len(obj.images.all()) > 0:
         obj.img = obj.images.all().first().img
