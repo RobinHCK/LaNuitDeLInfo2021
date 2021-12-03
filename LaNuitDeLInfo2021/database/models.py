@@ -2,6 +2,11 @@ from django.db import models
 import urllib
 import os
 
+def extract_frist_image(obj):
+    obj.img = None
+    if len(obj.images.all()) > 0:
+        obj.img = obj.images.all().first().img
+    return obj
 
 # Create or retrieve a placeholder
 def get_sentinel_ship():

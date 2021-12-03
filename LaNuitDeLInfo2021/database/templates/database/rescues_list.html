@@ -1,0 +1,24 @@
+<section class="text-center">
+    <div class="row">
+    {% for rescue in rescues %}
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+                src="{{ rescue.img }}"
+                class="img-fluid"
+              />
+              <a href="% url 'db:rdetail' rescue_id=rescue.id %}">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ rescue.date }}</h5>
+              <a href="% url 'db:rdetail' rescue_id=rescue.id %}" class="btn btn-primary">Détails</a>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% endfor %}
+    </div>
+</section>

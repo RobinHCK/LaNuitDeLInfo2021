@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    Sauveteurs du Dunkerquois
+{% endblock %}
+
+{% block body %}
+    <div class="col-lg-12">
+        <hr>
+        <h2 class="intro-text text-center">{{ list_title }}
+        </h2>
+    </div>
+
+    {% if albums|length_is:"0" %}
+        <div class="text-center">
+          Nous n'avons trouvé aucun résultat pour votre recherche
+        </div>
+
+    {% else %}
+        <section class="text-center">
+        <div class="row">
+        {% for ship in ships %}
+            <div class="col-lg-4 col-md-12 mb-4">
+              <div class="card">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                  <img
+                    src="{{ ship.img }}"
+                    class="img-fluid"
+                  />
+                  <a href="{% url 'db:sdetail' ship_id=ship.id %}">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ ship.name }}</h5>
+                  <a href="{% url 'db:sdetail' ship_id=ship.id %}" class="btn btn-primary">Détails</a>
+                </div>
+              </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+        {% endfor %}
+        </div>
+        </section>
+    {% endif %}
+{% endblock %}

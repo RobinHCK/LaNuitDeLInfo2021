@@ -1,0 +1,27 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    Sauveteurs du Dunkerquois
+{% endblock %}
+
+{% block body %}
+    <section>
+      <div class="row">
+        <div class="col-md-6 gx-5 mb-4">
+            <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
+        </div>
+
+        <div class="col-md-6 gx-5 mb-4">
+            <h4><strong>{{ ship.name }}</strong></h4>
+
+            {% if ship.rescues|length_is:"0" %}
+                Aucun sauvetage n'est enregistré pour ce bateau
+            {% else %}
+                <p><strong>Sauvetage reçu</strong></p>
+                {% include 'database/rescues_list.html' with rescues=ship.rescues %}
+            {% endif %}
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+{% endblock %}
