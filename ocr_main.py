@@ -8,7 +8,6 @@ import numpy as np
 import pytesseract
 
 from PIL import Image
-from image_preprocessing import preprocessing
 
 def image_remove_shadows(img):
     dilated_img = cv2.dilate(img, np.ones((7,7), np.uint8))
