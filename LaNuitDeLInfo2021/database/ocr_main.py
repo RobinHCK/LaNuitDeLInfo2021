@@ -55,13 +55,11 @@ def remove_empty_lines(text):
             text += line.strip() + '\n'
     # Remove mutliple line breaks
     clean = re.sub(r'(\n\s*)+\n', '\n\n', text)
+    clean = clean.replace('\n', '<br>')
     
     return clean
 
-def main():
-    assert len(sys.argv) == 2
-    filepath = sys.argv[1]
-
+def main(filepath):
     if os.path.exists(filepath):
         img = preprocessing(filepath)
         img.save("preprocessing.png")
@@ -70,8 +68,11 @@ def main():
 
         final_text = remove_empty_lines(ocr_text)
         print(final_text)
+        return final_text
     else:
         return "File does not exist"
 
 if __name__ == '__main__':
-    main()
+    assert len(sys.argv) == 2
+    filepath = sys.argv[1]
+    main(filepath)

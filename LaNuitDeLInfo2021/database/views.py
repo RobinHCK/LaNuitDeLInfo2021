@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Ship, Person, Rescue, Image, extract_first_image
 from .forms import ImageForm
+from .ocr_main import main as ocr_main
 
 
 def search_ship(request):
@@ -71,7 +72,17 @@ def image_upload_view(request):
         if form.is_valid():
             form.save()
             img = form.instance
-            text = 'Traduction:'
-        return render(request, 'database/drop.html', context={'form': form, 'img': img.img.path, 'text': text})
+            try:
+                text = ocr_main(img.img.path)
+            except:
+                text = None
+            if text is None or text == '':
+                text = "Aucun élément n'a pu être extrait"
+
+        return render(request, 'database/drop.html', context={'form': form, 'img': img.img, 'text': text})
     form = ImageForm()
     return render(request, 'database/drop.html', context={'form': form})
+
+
+def submit_image(request):
+    return render(request, 'home.index')

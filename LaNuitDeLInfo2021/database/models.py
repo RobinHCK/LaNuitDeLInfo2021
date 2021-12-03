@@ -21,6 +21,7 @@ def get_sentinel_ship_pk():
 class Image(models.Model):
     img = models.ImageField(upload_to='images/', null=True, verbose_name="")
     title = models.CharField(max_length=200, verbose_name="Nom de l'image", null=True)
+    text = models.TextField(null=True)
 
 
 class Ship(models.Model):
