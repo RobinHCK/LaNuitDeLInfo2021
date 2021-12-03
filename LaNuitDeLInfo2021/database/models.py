@@ -1,4 +1,6 @@
 from django.db import models
+import urllib
+import os
 
 
 # Create or retrieve a placeholder
@@ -11,8 +13,13 @@ def get_sentinel_ship_pk():
     return get_sentinel_ship().pk
 
 
+class Image(models.Model):
+    img = models.ImageField(upload_to='images/', null=True, verbose_name="")
+
+
 class Ship(models.Model):
     name = models.CharField(max_length=200, unique=True)
+    images = models.ManyToManyField(Image, related_name='ships', blank=True)
 
     # @classmethod
     # def get_default(cls):
@@ -28,10 +35,12 @@ class Ship(models.Model):
 
 
 class Person(models.Model):
-    name = models.CharField(max_length=200, unique=True)
+    first_name = models.CharField(max_length=200)
+    given_name = models.CharField(max_length=200)
+    images = models.ManyToManyField(Image, related_name='persons', blank=True)
 
     def __str__(self):
-        return self.name
+        return self.given_name+' '+self.first_name
 
 
 class Rescue(models.Model):
@@ -43,6 +52,9 @@ class Rescue(models.Model):
     # rescue_ship = models.ForeignKey(Ship, default=get_sentinel_ship(), on_delete=models.SET(get_sentinel_ship_pk()))
     lifeguard = models.ManyToManyField(Person, related_name='rescues', blank=True)
     rescued = models.ManyToManyField(Person, related_name='distresses', blank=True)
+    images = models.ManyToManyField(Image, related_name='rescues', blank=True)
 
     def __str__(self):
         return 'Rescue of the ship {self.ship.name} the {self.date})'.format(self=self)
+
+

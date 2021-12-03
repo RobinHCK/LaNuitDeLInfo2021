@@ -5,8 +5,15 @@
 {% endblock %}
 
     {% block body %}
-    <div class="file-upload-wrapper">
-      <input type="file" id="input-file-now" class="file-upload" />
-    </div>
+    <form>
+        <label class="form-label" for="customFile">Déposer votre fichier</label>
+        <input type="file" class="form-control" id="customFile" />
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block" formaction="{% url db:analyse %}">
+            Extraire des informations
+        </button>
+        <input>
+    </form>
 
 {% endblock %}
