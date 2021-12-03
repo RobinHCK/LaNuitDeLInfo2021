@@ -24,7 +24,7 @@
               <div class="card">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                   <img
-                    src="{{ person.img }}"
+                    src="/media/{{person.img}}"
                     class="img-fluid"
                   />
                   <a href="{% url 'db:pdetail' person_id=person.id %}">
@@ -32,7 +32,7 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">{{ person.name }}</h5>
+                  <h5 class="card-title">{{ person.given_name }} {{ person.first_name }}</h5>
                   <a href="{% url 'db:pdetail' person_id=person.id %}" class="btn btn-primary">Détails</a>
                 </div>
               </div>

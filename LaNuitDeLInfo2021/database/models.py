@@ -57,7 +57,7 @@ class Rescue(models.Model):
                                      default=None, null=True)
     # ship = models.ForeignKey(Ship, default=get_sentinel_ship(), on_delete=models.SET(get_sentinel_ship_pk()))
     # rescue_ship = models.ForeignKey(Ship, default=get_sentinel_ship(), on_delete=models.SET(get_sentinel_ship_pk()))
-    lifeguard = models.ManyToManyField(Person, related_name='rescues', blank=True)
+    lifeguard = models.ManyToManyField(Person, related_name='saved', blank=True)
     rescued = models.ManyToManyField(Person, related_name='distresses', blank=True)
     images = models.ManyToManyField(Image, related_name='rescues', blank=True)
 

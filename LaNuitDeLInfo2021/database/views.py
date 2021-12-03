@@ -38,9 +38,9 @@ def detail_ship(request, ship_id):
 def search_person(request):
     query = request.GET.get('query')
     if not query:
-        persons = Ship.objects.all()
+        persons = Person.objects.all()
     else:
-        persons = Ship.objects.filter(name_icontains=query)
+        persons = Person.objects.filter(name_icontains=query)
     title = 'Résutats pour la requête %s'%query
 
     persons = [extract_first_image(person) for person in persons]
@@ -52,10 +52,10 @@ def search_person(request):
 
 
 def detail_person(request, person_id):
-    person = Ship.objects.get(pk=person_id)
+    person = Person.objects.get(pk=person_id)
     images = [img.img for img in person.images.all()]
-    saving = person.savor.all()
-    rescues = person.rescued_in.all()
+    saving = person.saved.all()
+    rescues = person.distress.all()
     context = {
         'person': person,
         'image': images[0],
@@ -79,10 +79,10 @@ def image_upload_view(request):
             if text is None or text == '':
                 text = "Aucun élément n'a pu être extrait"
 
-        return render(request, 'database/drop.html', context={'form': form, 'img': img.img, 'text': text})
+        return render(request, 'database/drop.html', context={'form': form, 'img': img, 'text': text})
     form = ImageForm()
     return render(request, 'database/drop.html', context={'form': form})
 
 
 def submit_image(request):
-    return render(request, 'home.index')
+    return render(request, 'database/thx.html')

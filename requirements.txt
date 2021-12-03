@@ -3,4 +3,4 @@ django-debug-toolbar
 Pillow
 numpy
 pytesseract
-opencv-python
+opencv-python-headless
