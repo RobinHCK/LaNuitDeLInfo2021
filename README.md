@@ -10,15 +10,15 @@
 ## Sommaire
 
 * [Contexte](#contexte)
-  * [La nuit de l'info](#la-nuit-de-l-info)
-  * [Le défi de la nuit](#le-defi-de-la-nuit)
-  * [Le défi de l'AFIA](#le-defi-de-l-AFIA)
-  * [L'équipe](#l-equipe)
+  * [La nuit de l'info](#la-nuit-de-l'info)
+  * [Le défi de la nuit](#le-défi-de-la-nuit)
+  * [Le défi de l'AFIA](#le-défi-de-l'AFIA)
+  * [L'équipe](#l'équipe)
 * [Solution mise en oeuvre](#solution-mise-en-oeuvre)
-  * [Prérequis](#prerequis)
+  * [Prérequis](#prérequis)
   * [Technos](#technos)
-  * [Réalisations](#realisations)
-* [Résultat](#resultat)
+  * [Réalisations](#réalisations)
+* [Résultat](#résultat)
 * [Contacts](#contacts)
 
 <!-- Contexte -->
@@ -72,13 +72,13 @@ Le site web propose une interface qui permet :
 
 Extrait du compte-rendu du défi disponible dans le rapport de l'AFIA de Janvier 2022 (https://afia.asso.fr/les-bulletins/) : 
 
-*"La première place a été attribuée à l’équipe "Les Dodos Insomniaques" qui se démarque clairement de toutes les soumissions au défi.
+*"La première place a été attribuée à l’équipe "Les Dodos Insomniaques" qui se démarque clairement de toutes les soumissions au défi.*
 
-La solution proposée est parfaitement alignée sur les objectifs du sujet national (aider à la mise en ligne de contenu sur le site à partir de documents historiques orginaux).
+*La solution proposée est parfaitement alignée sur les objectifs du sujet national (aider à la mise en ligne de contenu sur le site à partir de documents historiques orginaux).
 L’équipe a proposé d’utiliser une technique d’IA pleinement appropriée (reconnaissance de caractères avec Tesseract) sur des documents réels récupérés sur le site de l’association à l’origine du sujet.
-Les explications incluent les essais réalisés avec différents algorithmes et analysent les forces et faiblesses de leur solution, ainsi que les pré-traitements nécessaires, le code est fourni.
+Les explications incluent les essais réalisés avec différents algorithmes et analysent les forces et faiblesses de leur solution, ainsi que les pré-traitements nécessaires, le code est fourni.*
 
-Le jury a considéré que cette soumission est exemplaire de l’objectif du défi."*
+*Le jury a considéré que cette soumission est exemplaire de l’objectif du défi."*
 
 <!-- Contacts -->
 ## Contacts
