@@ -2,9 +2,8 @@
 <br />
 <p align="center">
   <h3 align="center">La Nuit De L'Info 2021</h3>
+  ![1er](https://github.com/RobinHCK/LaNuitDeLInfo2021/blob/main/media/1er.png)
 </p>
-
-![1er](https://github.com/RobinHCK/LaNuitDeLInfo2021/blob/main/media/1er.png)
 
 <!-- Sommaire -->
 ## Sommaire
